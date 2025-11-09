@@ -10,7 +10,9 @@ I have not added this installer to any installer database.  I have no objection 
 
 ## Instructions
 
-Download [this file](test-of-time-install-script.yml) (test-of-time-install-script.yml)
+Download the file test-of-time-install-script.yml by clicking [this link](test-of-time-install-script.yml) (test-of-time-install-script.yml) and then choosing the "download raw file" icon:
+
+![icon for downloading individual file](download-raw-file-icon.png)
 
 ## Explanation and Original Sources for Provided Files
 
