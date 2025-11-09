@@ -9,7 +9,6 @@ script:
         exe: $GAMEDIR/drive_c/Test of Time/TOTLauncher.exe
         prefix: $GAMEDIR
         working_dir: $GAMEDIR/drive_c/Test of Time
-        arch: win32
     files:
     - installer-zip:
         url: https://github.com/ProfGarfield/lutris-installer/archive/refs/heads/main.zip
@@ -20,17 +19,12 @@ script:
         filename: "Extended Music for TOTPP"
         referrer: github.com/ProfGarfield  
     installer:
+    - task:
+         arch: win32
+         name: create_prefix
+         prefix: $GAMEDIR
     - insert-disc:
         requires: Civ2/civ2.exe
-    - task:
-        app: winxp
-        arch: win32
-        name: winetricks
-        prefix: $GAMEDIR
-    - input_menu:
-        description: "The Test of Time installer is about to run.  Install the game to the default suggested directory (C:\\Program Files\\Microprose\\Test of Time).  This script will automatically move the game files to a different directory at the appropriate time."
-        options:
-            - Yes: "I understand."
     - task:
         arch: win32
         executable: $DISC/SETUP.EXE
@@ -43,13 +37,15 @@ script:
         format: zip
     - extract:
         dst: $GAMEDIR/drive_c
-        file: $GAMEDIR/drive_c/installer-files/CIVIITTP.rar
+        file: $GAMEDIR/drive_c/lutris-installer-main/CIVIITTP.rar
         format: rar
     - task:
+        arch: win32
         executable: $GAMEDIR/drive_c/CIVIITTP.exe
         name: wineexec
     - task:
-        executable: $GAMEDIR/drive_c/installer-files/tot-v-1-1.exe
+        arch: win32
+        executable: $GAMEDIR/drive_c/lutris-installer-main/civtot11.exe
         name: wineexec
     - move:
         src: "$GAMEDIR/drive_c/Program Files/Microprose/Test of Time"
@@ -63,11 +59,11 @@ script:
         command: 'chmod -R u+w "$GAMEDIR/drive_c/Test of Time/Video"'
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time
-        file: $GAMEDIR/drive_c/installer-files/totpp-v0.18.4.zip
+        file: $GAMEDIR/drive_c/lutris-installer-main/TOTPPv018.4.zip
         format: zip
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time/Midgard
-        file: $GAMEDIR/drive_c/installer-files/Midgard_patch.7z
+        file: $GAMEDIR/drive_c/lutris-installer-main/Midgard_patch.7z
         format: 7z
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time
