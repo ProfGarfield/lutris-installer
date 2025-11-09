@@ -11,14 +11,26 @@ script:
         working_dir: $GAMEDIR/drive_c/Test of Time
         arch: win32
     files:
-    - installer-zip:
-        url: https://forums.civfanatics.com/attachments/test-of-time-installation-files-zip.619221/
-        filename: "Installation Files Zip"
+    - tot-v-1-1: 
+        url: https://forums.civfanatics.com/resources/test-of-time-v1-1-patch.59/download
+        filename: "Official Version 1.1 Patch"
+        referrer: forums.civfanatics.com
+    - totpp: 
+        url: https://forums.civfanatics.com/attachments/totppv018-4-zip.619222/
+        filename: "Test of Time Patch Project v0.18.4"
         referrer: forums.civfanatics.com
     - music:
         url: https://github.com/ProfGarfield/ExtendedMusicForTOTPP/archive/refs/heads/main.zip
         filename: "Extended Music for TOTPP"
         referrer: github.com/ProfGarfield  
+    - midgard: 
+        url: http://users.tpg.com.au/jpwbeest/files/Midgard_patch.7z
+        filename: "Catfish's Midgard Patch"
+        referrer: "Catfish's Cave Website"
+    - paradox:
+        url: http://sleague.civfanatics.com/images/2/23/CIVIITTP.rar
+        filename: "Official Time Threat Paradox Scenario"
+        referrer: sleage.civfanatics.com
     installer:
     - insert-disc:
         requires: Civ2/civ2.exe
@@ -38,18 +50,14 @@ script:
         prefix: $GAMEDIR
         working_dir: $DISC
     - extract:
-        dst: $GAMEDIR/drive_c/installer-files
-        file: installer-zip
-        format: zip
-    - extract:
         dst: $GAMEDIR/drive_c
-        file: $GAMEDIR/drive_c/installer-files/CIVIITTP.rar
+        file: paradox
         format: rar
     - task:
         executable: $GAMEDIR/drive_c/CIVIITTP.exe
         name: wineexec
     - task:
-        executable: $GAMEDIR/drive_c/installer-files/tot-v-1-1.exe
+        executable: tot-v-1-1
         name: wineexec
     - move:
         src: "$GAMEDIR/drive_c/Program Files/Microprose/Test of Time"
@@ -63,11 +71,11 @@ script:
         command: 'chmod -R u+w "$GAMEDIR/drive_c/Test of Time/Video"'
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time
-        file: $GAMEDIR/drive_c/installer-files/totpp-v0.18.4.zip
+        file: totpp
         format: zip
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time/Midgard
-        file: $GAMEDIR/drive_c/installer-files/Midgard_patch.7z
+        file: midgard
         format: 7z
     - extract:
         dst: $GAMEDIR/drive_c/Test of Time
@@ -156,8 +164,8 @@ script:
             GOTO :EOF
             
             GOTO :EOF
-    # wine:
-    #    arch: win32
-    #    version: lutris-fshack-7.2-x86_64
+    wine:
+        arch: win32
+        version: lutris-fshack-7.2-x86_64
         # version: lutris-6.14-3-x86_64
-    #    dxvk: false
+        dxvk: false
