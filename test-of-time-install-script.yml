@@ -25,6 +25,11 @@ script:
          prefix: $GAMEDIR
     - insert-disc:
         requires: Civ2/civ2.exe
+    - input_menu:
+        description: "The Test of Time installer is about to run.  Install the game to the default suggested directory (C:\\Program Files\\Microprose\\Test of Time).  This script will automatically move the game files to a different directory at the appropriate time.  It doesn't matter if you install the DirectX 6 drivers or not."
+        options:
+            - Yes: "Begin Installation."
+            - AlsoYes: ""
     - task:
         arch: win32
         executable: $DISC/SETUP.EXE
@@ -36,14 +41,17 @@ script:
         file: installer-zip
         format: zip
     - extract:
+        description: "Extracting the Official Time Threat Paradox Scenario..."
         dst: $GAMEDIR/drive_c
         file: $GAMEDIR/drive_c/lutris-installer-main/CIVIITTP.rar
         format: rar
     - task:
+        description: "Running the Official Time Threat Paradox Scenario installer..."
         arch: win32
         executable: $GAMEDIR/drive_c/CIVIITTP.exe
         name: wineexec
     - task:
+        description: "Running the Official Version 1.1 Patcher..."
         arch: win32
         executable: $GAMEDIR/drive_c/lutris-installer-main/civtot11.exe
         name: wineexec
@@ -51,6 +59,7 @@ script:
         src: "$GAMEDIR/drive_c/Program Files/Microprose/Test of Time"
         dst: $GAMEDIR/drive_c/Test of Time
     - copy:
+        description: "Copying Video files to the new Test of Time directory..."
         src: $DISC/Civ2/Video
         dst: $GAMEDIR/drive_c/Test of Time/Video
     - execute:
