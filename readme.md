@@ -10,6 +10,8 @@ I have not added this installer to any installer database.  I have no objection 
 
 ## Instructions
 
+Download [this file](test-of-time-install-script.yml) (test-of-time-install-script.yml)
+
 ## Explanation and Original Sources for Provided Files
 
 1.  Official Version 1.1 Patch: https://forums.civfanatics.com/resources/test-of-time-v1-1-patch.59/download

@@ -12,9 +12,9 @@ script:
         arch: win32
     files:
     - installer-zip:
-        url: https://forums.civfanatics.com/attachments/test-of-time-installation-files-zip.619221/
+        url: https://github.com/ProfGarfield/lutris-installer/archive/refs/heads/main.zip
         filename: "Installation Files Zip"
-        referrer: forums.civfanatics.com
+        referrer: github.com/ProfGarfield
     - music:
         url: https://github.com/ProfGarfield/ExtendedMusicForTOTPP/archive/refs/heads/main.zip
         filename: "Extended Music for TOTPP"
@@ -38,7 +38,7 @@ script:
         prefix: $GAMEDIR
         working_dir: $DISC
     - extract:
-        dst: $GAMEDIR/drive_c/installer-files
+        dst: $GAMEDIR/drive_c/lutris-installer-main
         file: installer-zip
         format: zip
     - extract:
