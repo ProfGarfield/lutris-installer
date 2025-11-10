@@ -25,11 +25,11 @@ script:
          prefix: $GAMEDIR
     - insert-disc:
         requires: Civ2/civ2.exe
-    - input_menu:
-        description: "The Test of Time installer is about to run.  Install the game to the default suggested directory (C:\\Program Files\\Microprose\\Test of Time).  This script will automatically move the game files to a different directory at the appropriate time.  It doesn't matter if you install the DirectX 6 drivers or not."
-        options:
-            - Yes: "Begin Installation."
-            - AlsoYes: ""
+    #- input_menu:
+    #    description: "The Test of Time installer is about to run.  Install the game to the default suggested directory (C:\\Program Files\\Microprose\\Test of Time).  This script will automatically move the game files to a different directory at the appropriate time.  It doesn't matter if you install the DirectX 6 drivers or not."
+    #    options:
+    #        - Yes: "Begin Installation."
+    #        - AlsoYes: "Begin Installation."
     - task:
         arch: win32
         executable: $DISC/SETUP.EXE
