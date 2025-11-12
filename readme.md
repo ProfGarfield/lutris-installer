@@ -1,3 +1,6 @@
+Under construction.  At the moment, this script works with the Lutris version in the Linux Mint 22.1 repository, but fails with the flatpak version.
+
+
 # Lutris Installer for Civilization II: Test of Time with Test of Time Patch Project
 
 This file provides a Lutris install script for Civilzation II: Test of Time along with the Test of Time Patch Project (TOTPP) version 0.18.4.  It also provides the option to install my [Extended Music Patch](https://github.com/ProfGarfield/ExtendedMusicForTOTPP), which uses TOTPP's Lua integration to allow the player to play custom tracks as in game music.
